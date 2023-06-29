@@ -58,15 +58,7 @@ const Mobile: React.FC<React.PropsWithChildren> = () => {
               <Box width="100%">
                 <Menu />
                 {status === PredictionStatus.LIVE ? <Positions view={view} /> : <LoadingSection />}
-                <Flex justifyContent="right">
-                  <PowerLinkStyle href="https://chain.link/" external>
-                    <img
-                      src="/images/powered-by-chainlink.svg"
-                      alt="Powered by ChainLink"
-                      style={{ width: '170px', maxHeight: '100%' }}
-                    />
-                  </PowerLinkStyle>
-                </Flex>
+                
               </Box>
             )}
           </Flex>
@@ -74,7 +66,7 @@ const Mobile: React.FC<React.PropsWithChildren> = () => {
         {view === PageView.CHART && <MobileChart />}
         {view === PageView.HISTORY && <History />}
       </Box>
-      <MobileMenu />
+ 
     </StyledMobile>
   )
 }

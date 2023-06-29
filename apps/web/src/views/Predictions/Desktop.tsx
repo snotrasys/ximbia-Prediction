@@ -24,7 +24,7 @@ import Positions from './Positions'
 import { useConfig } from './context/ConfigProvider'
 import LoadingSection from './components/LoadingSection'
 import Menu from './components/Menu'
-
+/* eslint-disable */
 const ChainlinkChart = dynamic(() => import('./components/ChainlinkChart'), { ssr: false })
 
 // The value to set the chart when the user clicks the chart tab at the bottom
@@ -202,77 +202,12 @@ const Desktop: React.FC<React.PropsWithChildren> = () => {
             )}
           </PositionPane>
 
-          <Gutter
-            ref={gutterRef}
-            isChartPaneOpen={isChartPaneOpen}
-            onClick={() => {
-              openChartPane()
-            }}
-          >
-            <PowerLinkStyle href="https://chain.link/" external>
-              <img src="/images/powered-by-chainlink.svg" alt="Powered by ChainLink" width="170px" height="48px" />
-            </PowerLinkStyle>
-            <ExpandButtonGroup>
-              <TabToggle
-                height="42px"
-                as={Button}
-                style={{ whiteSpace: 'nowrap', alignItems: 'center' }}
-                isActive={chartView === PredictionsChartView.TradingView}
-                onMouseDown={(e) => {
-                  e.stopPropagation()
-                  e.preventDefault()
-                  dispatch(setChartView(PredictionsChartView.TradingView))
-                }}
-              >
-                {chartView === PredictionsChartView.TradingView && <ChartIcon mr="10px" />} TradingView {t('Chart')}
-              </TabToggle>
-              <TabToggle
-                as={Button}
-                height="42px"
-                style={{ whiteSpace: 'nowrap', alignItems: 'center' }}
-                isActive={chartView === PredictionsChartView.Chainlink}
-                onMouseDown={(e) => {
-                  e.stopPropagation()
-                  e.preventDefault()
-                  dispatch(setChartView(PredictionsChartView.Chainlink))
-                }}
-              >
-                {chartView === PredictionsChartView.Chainlink && <ChartIcon mr="10px" />} Chainlink {t('Chart')}
-              </TabToggle>
-            </ExpandButtonGroup>
-            {isChartPaneOpen && (
-              <ChartByLabel
-                justifyContent="flex-end"
-                symbol={`${token.symbol}/USD`}
-                by={chartView}
-                linkProps={{
-                  onMouseDown: (e) => {
-                    window.open(
-                      chartView === PredictionsChartView.TradingView
-                        ? `https://www.tradingview.com/chart/?symbol=BINANCE%3A${token.symbol}USD`
-                        : 'https://chain.link/data-feeds',
-                      '_blank',
-                      'noopener noreferrer',
-                    )
-                    e.stopPropagation()
-                    e.preventDefault()
-                  },
-                }}
-                link={
-                  chartView === PredictionsChartView.TradingView
-                    ? `https://www.tradingview.com/chart/?symbol=BINANCE%3A${token.symbol}USD`
-                    : 'https://chain.link/data-feeds'
-                }
-              />
-            )}
-          </Gutter>
+         
           <ChartPane ref={chartRef}>
             {isChartPaneOpen && (chartView === PredictionsChartView.TradingView ? <TradingView /> : <ChainlinkChart />)}
           </ChartPane>
         </SplitWrapper>
-        <HistoryPane isHistoryPaneOpen={isHistoryPaneOpen} isChartPaneOpen={isChartPaneOpen}>
-          <History />
-        </HistoryPane>
+ 
       </StyledDesktop>
     </>
   )

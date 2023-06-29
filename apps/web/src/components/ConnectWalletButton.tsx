@@ -36,9 +36,9 @@ const ConnectWalletButton = ({ children, ...props }: ButtonProps) => {
 
   return (
     <>
-      <Button onClick={handleClick} {...props}>
+      <button className=' w-full whitespace-nowrap inline-flex items-center justify-center px-4 py-1 border border-transparent rounded-md shadow-sm text-base font-medium btn-primary ' type='button' onClick={handleClick} {...props}>
         {children || <Trans>Connect Wallet</Trans>}
-      </Button>
+      </button>
       <style jsx global>{`
         w3m-modal {
           position: relative;

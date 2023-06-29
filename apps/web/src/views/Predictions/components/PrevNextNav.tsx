@@ -51,9 +51,7 @@ const PrevNextNav = () => {
       <IconButton variant="text" scale="sm" onClick={handlePrevSlide}>
         <ArrowBackIcon color="primary" width="24px" />
       </IconButton>
-      <Icon onClick={handleSlideToLive}>
-        <BunnyCardsIcon width="64px" />
-      </Icon>
+
       <IconButton variant="text" scale="sm" onClick={handleNextSlide}>
         <ArrowForwardIcon color="primary" width="24px" />
       </IconButton>

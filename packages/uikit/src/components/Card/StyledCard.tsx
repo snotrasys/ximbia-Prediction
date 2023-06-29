@@ -37,23 +37,15 @@ export const StyledCard = styled.div<StyledCardProps>`
   overflow: hidden;
   position: relative;
 
-  ${({ isActive }) =>
-    isActive &&
-    css`
-      animation: ${promotedGradient} 3s ease infinite;
-      background-size: 400% 400%;
-    `}
 
-  padding: 1px 1px 3px 1px;
-
-  ${space}
 `;
 
 export const StyledCardInner = styled(Box)<{ background?: string; hasCustomBorder: boolean }>`
   width: 100%;
   height: 100%;
   overflow: ${({ hasCustomBorder }) => (hasCustomBorder ? "initial" : "inherit")};
-  background: ${({ theme, background }) => background ?? theme.card.background};
+  overflow: inherit;
+  background: linear-gradient(rgb(17, 24, 39), rgb(88, 28, 135), rgb(124, 58, 237));
   border-radius: ${({ theme }) => theme.radii.card};
 `;
 

@@ -53,7 +53,7 @@ const PhishingWarningBanner: React.FC<React.PropsWithChildren> = () => {
   const warningTextComponent = (
     <>
       <Text as="span" color="warning" small bold textTransform="uppercase">
-        {t('Phishing warning: ')}
+       dsada
       </Text>
       {warningTextAsParts.map((text, i) => (
         <Text

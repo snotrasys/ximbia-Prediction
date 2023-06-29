@@ -90,7 +90,7 @@ const StepIntro = ({ docLink, docText }: { docLink: string; docText: string }) =
             <Heading as="h2" color="secondary">
               {introStep.title}
             </Heading>
-            <Image m="auto" src={introStep.icon} width={198} height={178} />
+          
             <Text maxWidth="368px" m="auto" small color="textSubtle">
               {introStep.description}
             </Text>
@@ -101,9 +101,7 @@ const StepIntro = ({ docLink, docText }: { docLink: string; docText: string }) =
         <StepDot place="left" active={step === 0} onClick={handleStepClick(0)} />
         <StepDot place="right" active={step === 1} onClick={handleStepClick(1)} />
       </AtomBox>
-      <Button minHeight={40} variant="subtle" external as={LinkExternal} color="backgroundAlt" href={docLink}>
-        {docText}
-      </Button>
+  
     </AtomBox>
   )
 }

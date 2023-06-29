@@ -177,26 +177,7 @@ export const PricePairLabel: React.FC<React.PropsWithChildren> = () => {
   }, [router, token, dismissTooltip, onDismissTooltip])
   return (
     <>
-      <Box pl={['20px', '20px', '20px', '20px', '40px']} position="relative" display="inline-block">
-        {!dismissTooltip && (
-          <Tooltip data-theme={isDark ? 'light' : 'dark'}>
-            <Text mr="5px" display="inline-block" verticalAlign="super">
-              {t('Switch pairs here.')}
-            </Text>
-            <CloseIcon cursor="pointer" onClick={onDismissTooltip} />
-          </Tooltip>
-        )}
-        <CoinSwitcher
-          isDefaultBnb={router.query.token === 'BNB' || (router.query.token === undefined && token.symbol === 'BNB')}
-          onTokenSwitch={onTokenSwitch}
-        />
-        <Label dir="left" backgroundOpacity={!dismissTooltip}>
-          <Title bold textTransform="uppercase">
-            {`${token.symbol}USD`}
-          </Title>
-          <LabelPrice price={price} />
-        </Label>
-      </Box>
+     
     </>
   )
 }

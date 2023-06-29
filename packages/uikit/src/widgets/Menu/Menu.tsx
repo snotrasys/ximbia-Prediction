@@ -1,5 +1,9 @@
+/* eslint-disable */
+import ImgS3 from "./ImgS3";
 import { useIsMounted } from "@pancakeswap/hooks";
 import { AtomBox } from "@pancakeswap/ui/components/AtomBox";
+import { Dialog, Menu as Menu1, Transition, Disclosure } from "@headlessui/react";
+
 import throttle from "lodash/throttle";
 import React, { useEffect, useRef, useState, useMemo } from "react";
 import styled from "styled-components";
@@ -87,6 +91,7 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
   buyCakeLink,
   children,
   chainId,
+  Navbar,
 }) => {
   const { isMobile } = useMatchBreakpoints();
   const isMounted = useIsMounted();
@@ -132,84 +137,21 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
   const subLinksWithoutMobile = subLinks?.filter((subLink) => !subLink.isMobileOnly);
   const subLinksMobileOnly = subLinks?.filter((subLink) => subLink.isMobileOnly);
   const providerValue = useMemo(() => ({ linkComponent }), [linkComponent]);
+
+
+
   return (
     <MenuContext.Provider value={providerValue}>
-      <AtomBox
-        asChild
-        minHeight={{
-          xs: "auto",
-          md: "100vh",
-        }}
-      >
+   
         <Wrapper>
-          <FixedContainer showMenu={showMenu} height={totalTopMenuHeight}>
-            {banner && isMounted && <TopBannerContainer height={topBannerHeight}>{banner}</TopBannerContainer>}
-            <StyledNav>
-              <Flex>
-                <Logo href={homeLink?.href ?? "/"} />
-                <AtomBox display={{ xs: "none", md: "block" }}>
-                  <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="24px" />
-                </AtomBox>
-              </Flex>
-              <Flex alignItems="center" height="100%">
-                <AtomBox mr="12px" display={{ xs: "none", lg: "block" }}>
-                  <CakePrice chainId={chainId} showSkeleton={false} cakePriceUsd={cakePriceUsd} />
-                </AtomBox>
-                <Box mt="4px">
-                  <LangSelector
-                    currentLang={currentLang}
-                    langs={langs}
-                    setLang={setLang}
-                    buttonScale="xs"
-                    color="textSubtle"
-                    hideLanguage
-                  />
-                </Box>
-                {rightSide}
-              </Flex>
-            </StyledNav>
-          </FixedContainer>
-          {subLinks ? (
-            <Flex justifyContent="space-around" overflow="hidden">
-              <SubMenuItems
-                items={subLinksWithoutMobile}
-                mt={`${totalTopMenuHeight + 1}px`}
-                activeItem={activeSubItem}
-              />
-
-              {subLinksMobileOnly && subLinksMobileOnly?.length > 0 && (
-                <SubMenuItems
-                  items={subLinksMobileOnly}
-                  mt={`${totalTopMenuHeight + 1}px`}
-                  activeItem={activeSubItem}
-                  isMobileOnly
-                />
-              )}
-            </Flex>
-          ) : (
-            <div />
-          )}
+        
+        {Navbar}
           <BodyWrapper mt={!subLinks ? `${totalTopMenuHeight + 1}px` : "0"}>
             <Inner>{children}</Inner>
           </BodyWrapper>
         </Wrapper>
-      </AtomBox>
-      <Footer
-        chainId={chainId}
-        items={footerLinks}
-        isDark={isDark}
-        toggleTheme={toggleTheme}
-        langs={langs}
-        setLang={setLang}
-        currentLang={currentLang}
-        cakePriceUsd={cakePriceUsd}
-        buyCakeLabel={buyCakeLabel}
-        buyCakeLink={buyCakeLink}
-        mb={[`${MOBILE_MENU_HEIGHT}px`, null, "0px"]}
-      />
-      <AtomBox display={{ xs: "block", md: "none" }}>
-        <BottomNav items={links} activeItem={activeItem} activeSubItem={activeSubItem} />
-      </AtomBox>
+  
+
     </MenuContext.Provider>
   );
 };

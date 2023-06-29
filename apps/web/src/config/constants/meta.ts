@@ -4,10 +4,10 @@ import { PageMeta } from './types'
 import { ASSET_CDN } from './endpoints'
 
 export const DEFAULT_META: PageMeta = {
-  title: 'PancakeSwap',
+  title: 'Ximbia',
   description:
-    'The most popular AMM on BSC by user count! Earn CAKE through yield farming or win it in the Lottery, then stake it in Syrup Pools to earn more tokens! Initial Farm Offerings (new token launch model pioneered by PancakeSwap), NFTs, and more, on a platform you can trust.',
-  image: `${ASSET_CDN}/web/og/hero.jpg`,
+    'Discover the most popular AMM on Arbitrum by user count! Earn Ximbia tokens through yield farming, then stake them in Syrup Pools to earn even more rewards. Participate in our Initial Farm Offering (IFO) to get exclusive access to new token launches. Plus, collect unique NFTs and enjoy a platform you can trust, all on ximbia for Arbitrum.',
+
 }
 
 interface PathList {

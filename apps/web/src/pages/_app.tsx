@@ -1,4 +1,5 @@
 import '@pancakeswap/ui/css/reset.css'
+import './index.css'
 import { ResetCSS, ScrollToTopButtonV2, ToastListener } from '@pancakeswap/uikit'
 import BigNumber from 'bignumber.js'
 import GlobalCheckClaimStatus from 'components/GlobalCheckClaimStatus'
@@ -65,28 +66,32 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
 
   return (
     <>
-      <Head>
+     <Head>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1, viewport-fit=cover"
         />
         <meta
           name="description"
-          content="Cheaper and faster than Uniswap? Discover PancakeSwap, the leading DEX on BNB Smart Chain (BSC) with the best farms in DeFi and a lottery for CAKE."
+          content="Discover the most popular AMM on Arbitrum by user count! Earn Ximbia tokens through yield farming, then stake them in Syrup Pools to earn even more rewards. Participate in our Initial Farm Offering (IFO) to get exclusive access to new token launches. Plus, collect unique NFTs and enjoy a platform you can trust, all on ximbia for Arbitrum."
         />
         <meta name="theme-color" content="#1FC7D4" />
-        {(Component as NextPageWithLayout).mp && (
-          // eslint-disable-next-line @next/next/no-sync-scripts
-          <script src="https://public.bnbstatic.com/static/js/mp-webview-sdk/webview-v1.0.0.min.js" id="mp-webview" />
-        )}
+        <meta name="twitter:image" content="https://minio-s3.caprover.snotrasys.com/ximbia/logo.png" />
+        <meta
+          name="twitter:description"
+          content="Discover the most popular AMM on Arbitrum by user count! Earn Ximbia tokens through yield farming, then stake them in Syrup Pools to earn even more rewards. Participate in our Initial Farm Offering (IFO) to get exclusive access to new token launches. Plus, collect unique NFTs and enjoy a platform you can trust, all on ximbia for Arbitrum."
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Ximbia" />
+        <title>Ximbia</title>
       </Head>
-      <DefaultSeo {...SEO} />
+ 
       <Providers store={store}>
-        <PageMeta />
-        {(Component as NextPageWithLayout).Meta && (
-          // @ts-ignore
-          <Component.Meta {...pageProps} />
-        )}
+        <div className='bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#39004d] to-[#000]'>
+
+
+
+     
         <Blocklist>
           {(Component as NextPageWithLayout).mp ? <MPGlobalHooks /> : <GlobalHooks />}
           <ResetCSS />
@@ -97,33 +102,10 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
             <App {...props} />
           </PersistGate>
         </Blocklist>
+        </div>
       </Providers>
-      <Script
-        strategy="afterInteractive"
-        id="google-tag"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer', '${process.env.NEXT_PUBLIC_GTAG}');
-          `,
-        }}
-      />
-      <Script
-        strategy="afterInteractive"
-        id="google-tag-new"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_NEW_GTAG}');
-          `,
-        }}
-      />
+   
+    
     </>
   )
 }

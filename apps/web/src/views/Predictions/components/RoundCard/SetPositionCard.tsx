@@ -167,14 +167,14 @@ const SetPositionCard: React.FC<React.PropsWithChildren<SetPositionCardProps>> =
   const handleEnterPosition = async () => {
     const betMethod = position === BetPosition.BULL ? 'betBull' : 'betBear'
     const callOptions =
-      token.symbol === 'CAKE'
+      token.symbol === 'XMB'
         ? {
             gas: 300000n,
             value: 0n,
           }
         : { value: BigInt(valueAsBn.toString()) }
 
-    const args = token.symbol === 'CAKE' ? [epoch, valueAsBn.toString()] : [epoch]
+    const args = token.symbol === 'XMB' ? [epoch, valueAsBn.toString()] : [epoch]
 
     const receipt = await fetchWithCatchTxError(() => {
       return callWithGasPrice(predictionsContract as any, betMethod, args, callOptions)
@@ -190,7 +190,7 @@ const SetPositionCard: React.FC<React.PropsWithChildren<SetPositionCardProps>> =
     const hasSufficientBalance = inputAmount > 0n && inputAmount <= maxBalance
 
     if (!hasSufficientBalance) {
-      setErrorMessage(t('Insufficient %symbol% balance', { symbol: token.symbol }))
+      setErrorMessage(t('Insufficient XMB balance', { symbol: token.symbol }))
     } else if (inputAmount > 0n && inputAmount < minBetAmount) {
       setErrorMessage(
         t('A minimum amount of %num% %token% is required', { num: formatBigInt(minBetAmount), token: token.symbol }),
@@ -225,9 +225,9 @@ const SetPositionCard: React.FC<React.PropsWithChildren<SetPositionCardProps>> =
             {t('Commit')}:
           </Text>
           <Flex alignItems="center">
-            <Logo mr="4px" />
+            <img className='mr-2' src="https://minio-s3.caprover.snotrasys.com/ximbia/moneda-ximbia.png" alt="bnb" width="24px" height="24px" />
             <Text bold textTransform="uppercase">
-              {token.symbol}
+             XMB
             </Text>
           </Flex>
         </Flex>
@@ -299,7 +299,7 @@ const SetPositionCard: React.FC<React.PropsWithChildren<SetPositionCardProps>> =
                 isLoading={isTxPending}
                 endIcon={isTxPending ? <AutoRenewIcon color="currentColor" spin /> : null}
               >
-                {t(key, { symbol: token.symbol })}
+                {t(key, { symbol: `XMB`})}
               </Button>
             ) : (
               <Button

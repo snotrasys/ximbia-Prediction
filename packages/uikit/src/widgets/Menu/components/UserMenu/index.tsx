@@ -117,22 +117,21 @@ const UserMenu: React.FC<UserMenuProps> = ({
 
   return (
     <Flex alignItems="center" height="100%" ref={setTargetRef} {...props}>
-      <StyledUserMenu
-        onTouchStart={() => {
-          setIsOpen((s) => !s);
-        }}
-      >
-        <MenuIcon className={avatarClassName} avatarSrc={avatarSrc} variant={variant} />
-        <LabelText title={typeof text === "string" ? text || account : account}>
+     <div style={{
+        display:"flex",
+        color:"#ffffff !important",
+        fontSize:"14px",
+        fontWeight:"bold",
+     }}>
+    
           {text || (ellipsis ? accountEllipsis : account)}
-        </LabelText>
-        {!disabled && <ChevronDownIcon color="text" width="24px" />}
-      </StyledUserMenu>
-      {!disabled && (
-        <Menu style={styles.popper} ref={setTooltipRef} {...attributes.popper} isOpen={isOpen}>
-          <Box onClick={() => setIsOpen(false)}>{children?.({ isOpen })}</Box>
-        </Menu>
-      )}
+
+     </div>
+      
+       
+      
+     
+    
     </Flex>
   );
 };
