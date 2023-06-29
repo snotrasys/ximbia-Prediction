@@ -58,7 +58,6 @@ const Mobile: React.FC<React.PropsWithChildren> = () => {
               <Box width="100%">
                 <Menu />
                 {status === PredictionStatus.LIVE ? <Positions view={view} /> : <LoadingSection />}
-                
               </Box>
             )}
           </Flex>
@@ -66,7 +65,6 @@ const Mobile: React.FC<React.PropsWithChildren> = () => {
         {view === PageView.CHART && <MobileChart />}
         {view === PageView.HISTORY && <History />}
       </Box>
- 
     </StyledMobile>
   )
 }

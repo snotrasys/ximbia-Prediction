@@ -66,7 +66,7 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
 
   return (
     <>
-     <Head>
+      <Head>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1, viewport-fit=cover"
@@ -85,27 +85,21 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
         <meta name="twitter:title" content="Ximbia" />
         <title>Ximbia</title>
       </Head>
- 
+
       <Providers store={store}>
-        <div className='bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#39004d] to-[#000]'>
-
-
-
-     
-        <Blocklist>
-          {(Component as NextPageWithLayout).mp ? <MPGlobalHooks /> : <GlobalHooks />}
-          <ResetCSS />
-          <GlobalStyle />
-          <GlobalCheckClaimStatus excludeLocations={[]} />
-          <PersistGate loading={null} persistor={persistor}>
-            <Updaters />
-            <App {...props} />
-          </PersistGate>
-        </Blocklist>
+        <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#39004d] to-[#000]">
+          <Blocklist>
+            {(Component as NextPageWithLayout).mp ? <MPGlobalHooks /> : <GlobalHooks />}
+            <ResetCSS />
+            <GlobalStyle />
+            <GlobalCheckClaimStatus excludeLocations={[]} />
+            <PersistGate loading={null} persistor={persistor}>
+              <Updaters />
+              <App {...props} />
+            </PersistGate>
+          </Blocklist>
         </div>
       </Providers>
-   
-    
     </>
   )
 }

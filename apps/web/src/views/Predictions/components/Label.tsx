@@ -175,11 +175,7 @@ export const PricePairLabel: React.FC<React.PropsWithChildren> = () => {
 
     router.replace(router, undefined, { scroll: false })
   }, [router, token, dismissTooltip, onDismissTooltip])
-  return (
-    <>
-     
-    </>
-  )
+  return <></>
 }
 
 interface TimerLabelProps {

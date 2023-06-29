@@ -202,12 +202,10 @@ const Desktop: React.FC<React.PropsWithChildren> = () => {
             )}
           </PositionPane>
 
-         
           <ChartPane ref={chartRef}>
             {isChartPaneOpen && (chartView === PredictionsChartView.TradingView ? <TradingView /> : <ChainlinkChart />)}
           </ChartPane>
         </SplitWrapper>
- 
       </StyledDesktop>
     </>
   )

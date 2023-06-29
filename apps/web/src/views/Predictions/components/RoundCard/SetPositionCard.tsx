@@ -166,23 +166,21 @@ const SetPositionCard: React.FC<React.PropsWithChildren<SetPositionCardProps>> =
   const { key, disabled } = getButtonProps(valueAsBn, maxBalance, minBetAmount)
 
   const handleEnterPosition = async () => {
-    
     const betMethod = position === BetPosition.BULL ? 'betBull' : 'betBear'
     const callOptions =
       // token.symbol === 'XMB'
-        // ?
-         {
-            gas: 300000n,
-            value: 0n,
-          }
-        // : { value: BigInt(valueAsBn.toString()) }
+      // ?
+      {
+        gas: 300000n,
+        value: 0n,
+      }
+    // : { value: BigInt(valueAsBn.toString()) }
 
     // const args = token.symbol === 'XMB' ? [epoch, valueAsBn.toString()] : [epoch]
-    const args =[epoch, valueAsBn.toString()]
+    const args = [epoch, valueAsBn.toString()]
 
-    console.log("handleEnterPosition",args);
+    console.log('handleEnterPosition', args)
 
-    
     const receipt = await fetchWithCatchTxError(() => {
       return callWithGasPrice(predictionsContract as any, betMethod, args, callOptions)
     })
@@ -232,9 +230,15 @@ const SetPositionCard: React.FC<React.PropsWithChildren<SetPositionCardProps>> =
             {t('Commit')}:
           </Text>
           <Flex alignItems="center">
-            <img className='mr-2' src="https://minio-s3.caprover.snotrasys.com/ximbia/moneda-ximbia.png" alt="bnb" width="24px" height="24px" />
+            <img
+              className="mr-2"
+              src="https://minio-s3.caprover.snotrasys.com/ximbia/moneda-ximbia.png"
+              alt="bnb"
+              width="24px"
+              height="24px"
+            />
             <Text bold textTransform="uppercase">
-             XMB
+              XMB
             </Text>
           </Flex>
         </Flex>
@@ -306,7 +310,7 @@ const SetPositionCard: React.FC<React.PropsWithChildren<SetPositionCardProps>> =
                 isLoading={isTxPending}
                 endIcon={isTxPending ? <AutoRenewIcon color="currentColor" spin /> : null}
               >
-                {t(key, { symbol: `XMB`})}
+                {t(key, { symbol: `XMB` })}
               </Button>
             ) : (
               <Button

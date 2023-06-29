@@ -12,6 +12,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "dev": "turbo run dev --filter=web... --concurrency=19",
+    "build2": "turbo run build2 --filter=web... --concurrency=19",
     "dev:aptos": "pnpm turbo run dev --filter=aptos-web...",
     "dev:blog": "pnpm turbo run dev --filter=blog...",
     "dev:bridge": "pnpm turbo run dev --filter=bridge...",

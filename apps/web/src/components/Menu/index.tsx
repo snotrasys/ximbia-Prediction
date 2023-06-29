@@ -8,8 +8,10 @@ import {
   HomeIcon,
   InboxIcon,
   UsersIcon,
-  Bars3Icon, XMarkIcon, ChevronDownIcon
-} from "@heroicons/react/24/outline";
+  Bars3Icon,
+  XMarkIcon,
+  ChevronDownIcon,
+} from '@heroicons/react/24/outline'
 import { Dialog, Menu as Menu1, Transition, Disclosure } from '@headlessui/react'
 import { footerLinks, Menu as UikitMenu, NextLinkFromReactRouter, useModal } from '@pancakeswap/uikit'
 import USCitizenConfirmModal from 'components/Modal/USCitizenConfirmModal'
@@ -27,7 +29,6 @@ import { useMenuItems } from './hooks/useMenuItems'
 import UserMenu from './UserMenu'
 import { getActiveMenuItem, getActiveSubMenuItem } from './utils'
 import ImgS3 from './ImgS3'
-
 
 const navigation = [
   { name: 'Home', href: '/home' },
@@ -113,7 +114,7 @@ const LinkComponent = (linkProps) => {
 }
 
 const Navbar = ({ userMenu }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false)
   return (
     <>
       <div className="mb-3">
@@ -151,7 +152,7 @@ const Navbar = ({ userMenu }) => {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                   >
-                    <div className="absolute left-full top-0 flex w-16 justify-center pt-5"/>
+                    <div className="absolute left-full top-0 flex w-16 justify-center pt-5" />
                   </Transition.Child>
                   {/* Sidebar component, swap this element with another sidebar if you like */}
                   <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-[#230042]  px-9 pb-2">
@@ -344,11 +345,7 @@ const Menu = (props) => {
             <UserMenu />
           </>
         }
-        Navbar={  
-          <Navbar userMenu={
-            <UserMenu />
-          }/>
-        }
+        Navbar={<Navbar userMenu={<UserMenu />} />}
         chainId={chainId}
         isDark={isDark}
         toggleTheme={toggleTheme}
