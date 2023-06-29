@@ -16,18 +16,24 @@ const withBundleAnalyzer = BundleAnalyzer({
 
 const withVanillaExtract = createVanillaExtractPlugin()
 
-const sentryWebpackPluginOptions = {
-  dryRun: process.env.VERCEL_ENV === "production",
-  silent: true, // Suppresses all logs
-  // For all available options, see
-  //
-  //
-
-  // Additional config options for the Sentry Webpack plugin. Keep in mind that
-
-
-
-}
+const sentryWebpackPluginOptions =
+  process.env.VERCEL_ENV === 'production'
+    ? {
+        // Additional config options for the Sentry Webpack plugin. Keep in mind that
+        // the following options are set automatically, and overriding them is not
+        // recommended:
+        //   release, url, org, project, authToken, configFile, stripPrefix,
+        //   urlPrefix, include, ignore
+        silent: false, // Logging when deploying to check if there is any problem
+        validate: true,
+        hideSourceMaps: false,
+        // https://github.com/getsentry/sentry-webpack-plugin#options.
+      }
+    : {
+        hideSourceMaps: false,
+        silent: true, // Suppresses all logs
+        dryRun: true, // Disables Uploading the Source Maps during the run
+      }
 
 const workerDeps = Object.keys(smartRouterPkgs.dependencies)
   .map((d) => d.replace('@pancakeswap/', 'packages/'))
