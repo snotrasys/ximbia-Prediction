@@ -1,15 +1,17 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+import { withSentryConfig } from '@sentry/nextjs'
 import { withAxiom } from 'next-axiom'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import BundleAnalyzer from '@next/bundle-analyzer'
 import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin'
 import smartRouterPkgs from '@pancakeswap/smart-router/package.json' assert { type: 'json' }
+import { withWebSecurityHeaders } from '@pancakeswap/next-config/withWebSecurityHeaders'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const withBundleAnalyzer = BundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true',
+  enabled: process.env.ANALYZE !== 'true',
 })
 
 const withVanillaExtract = createVanillaExtractPlugin()
@@ -30,8 +32,9 @@ const sentryWebpackPluginOptions =
     : {
         hideSourceMaps: false,
         silent: true, // Suppresses all logs
-        dryRun: true, // Disables Uploading the Source Maps during the run
+        dryRun: true, // Disables Uploading the Source Maps to Sentry Server
       }
+
 
 const workerDeps = Object.keys(smartRouterPkgs.dependencies)
   .map((d) => d.replace('@pancakeswap/', 'packages/'))
@@ -213,4 +216,6 @@ const config = {
   },
 }
 
-export default withBundleAnalyzer()
+export default withBundleAnalyzer(
+  withVanillaExtract(withSentryConfig(withAxiom(withWebSecurityHeaders(config)), sentryWebpackPluginOptions)),
+)
