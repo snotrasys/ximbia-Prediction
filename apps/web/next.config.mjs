@@ -17,7 +17,7 @@ const withBundleAnalyzer = BundleAnalyzer({
 const withVanillaExtract = createVanillaExtractPlugin()
 
 const sentryWebpackPluginOptions =
-  process.env.VERCEL_ENV === 'production'
+  process.env.VERCEL_ENV === 'production2'
     ? {
         // Additional config options for the Sentry Webpack plugin. Keep in mind that
         // the following options are set automatically, and overriding them is not
