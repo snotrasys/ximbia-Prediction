@@ -7,7 +7,8 @@ RUN npm install -g pnpm
 COPY . /app
 
 RUN pnpm install
-CMD ["pnpm","run", "build"]
+RUN pnpm run build
+# CMD ["pnpm","run", "build"]
 
 # production environment
 FROM nginx:stable-alpine
