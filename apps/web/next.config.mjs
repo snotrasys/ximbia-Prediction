@@ -11,26 +11,31 @@ import { withWebSecurityHeaders } from '@pancakeswap/next-config/withWebSecurity
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const withBundleAnalyzer = BundleAnalyzer({
-  enabled: process.env.ANALYZE !== 'true',
+  // enabled: process.env.ANALYZE !== 'true',
+  enabled: false
 })
 
 const withVanillaExtract = createVanillaExtractPlugin()
 
 const sentryWebpackPluginOptions =
-  process.env.VERCEL_ENV === 'production'
-    ? {
-        // Additional config options for the Sentry Webpack plugin. Keep in mind that
-        // the following options are set automatically, and overriding them is not
-        // recommended:
-        //   release, url, org, project, authToken, configFile, stripPrefix,
-        //   urlPrefix, include, ignore
-        silent: false, // Logging when deploying to check if there is any problem
-        validate: true,
-        hideSourceMaps: false,
-        // https://github.com/getsentry/sentry-webpack-plugin#options.
-      }
-    : {
-        hideSourceMaps: false,
+  // process.env.VERCEL_ENV === 'production'
+  //   ? {
+  //       // Additional config options for the Sentry Webpack plugin. Keep in mind that
+  //       // the following options are set automatically, and overriding them is not
+  //       // recommended:
+  //       //   release, url, org, project, authToken, configFile, stripPrefix,
+  //       //   urlPrefix, include, ignore
+  //       silent: false, // Logging when deploying to check if there is any problem
+  //       validate: true,
+  //       hideSourceMaps: false,
+  //       // https://github.com/getsentry/sentry-webpack-plugin#options.
+  //     }
+  //   :
+   {
+    
+      disableServerWebpackPlugin: true,
+      disableClientWebpackPlugin: true,    
+        hideSourceMaps: true,
         silent: true, // Suppresses all logs
         dryRun: true, // Disables Uploading the Source Maps to Sentry Server
       }
