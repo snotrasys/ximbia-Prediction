@@ -17,6 +17,7 @@ const withBundleAnalyzer = BundleAnalyzer({
 const withVanillaExtract = createVanillaExtractPlugin()
 
 const sentryWebpackPluginOptions = {
+  dryRun: process.env.VERCEL_ENV === "production",
   silent: true, // Suppresses all logs
   // For all available options, see
   //
