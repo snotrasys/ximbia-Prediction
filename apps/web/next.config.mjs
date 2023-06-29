@@ -50,13 +50,13 @@ const config = {
   compiler: {
     styledComponents: true,
   },
-  experimental: {
-    scrollRestoration: true,
-    outputFileTracingRoot: path.join(__dirname, '../../'),
-    outputFileTracingExcludes: {
-      '*': ['**@swc+core*', '**/@esbuild**'],
-    },
-  },
+  // experimental: {
+  //   scrollRestoration: true,
+  //   outputFileTracingRoot: path.join(__dirname, '../../'),
+  //   outputFileTracingExcludes: {
+  //     '*': ['**@swc+core*', '**/@esbuild**'],
+  //   },
+  // },
   transpilePackages: [
     '@pancakeswap/ui',
     '@pancakeswap/uikit',
