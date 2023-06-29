@@ -2,7 +2,7 @@
 import ImgS3 from "./ImgS3";
 import { useIsMounted } from "@pancakeswap/hooks";
 import { AtomBox } from "@pancakeswap/ui/components/AtomBox";
-import { Dialog, Menu as Menu1, Transition, Disclosure } from "@headlessui/react";
+
 
 import throttle from "lodash/throttle";
 import React, { useEffect, useRef, useState, useMemo } from "react";
