@@ -34,6 +34,7 @@ import useCakeApprove from 'hooks/useCakeApprove'
 
 import PositionTag from '../PositionTag'
 import FlexRow from '../FlexRow'
+import { ar } from 'date-fns/locale'
 
 const LOGOS = {
   BNB: BinanceIcon,
@@ -165,17 +166,23 @@ const SetPositionCard: React.FC<React.PropsWithChildren<SetPositionCardProps>> =
   const { key, disabled } = getButtonProps(valueAsBn, maxBalance, minBetAmount)
 
   const handleEnterPosition = async () => {
+    
     const betMethod = position === BetPosition.BULL ? 'betBull' : 'betBear'
     const callOptions =
-      token.symbol === 'XMB'
-        ? {
+      // token.symbol === 'XMB'
+        // ?
+         {
             gas: 300000n,
             value: 0n,
           }
-        : { value: BigInt(valueAsBn.toString()) }
+        // : { value: BigInt(valueAsBn.toString()) }
 
-    const args = token.symbol === 'XMB' ? [epoch, valueAsBn.toString()] : [epoch]
+    // const args = token.symbol === 'XMB' ? [epoch, valueAsBn.toString()] : [epoch]
+    const args =[epoch, valueAsBn.toString()]
 
+    console.log("handleEnterPosition",args);
+
+    
     const receipt = await fetchWithCatchTxError(() => {
       return callWithGasPrice(predictionsContract as any, betMethod, args, callOptions)
     })
