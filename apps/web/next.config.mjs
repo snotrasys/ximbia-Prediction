@@ -1,12 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { withSentryConfig } from '@sentry/nextjs'
 import { withAxiom } from 'next-axiom'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import BundleAnalyzer from '@next/bundle-analyzer'
 import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin'
 import smartRouterPkgs from '@pancakeswap/smart-router/package.json' assert { type: 'json' }
-import { withWebSecurityHeaders } from '@pancakeswap/next-config/withWebSecurityHeaders'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -215,6 +213,4 @@ const config = {
   },
 }
 
-export default withBundleAnalyzer(
-  withVanillaExtract(withSentryConfig(withAxiom(withWebSecurityHeaders(config)), sentryWebpackPluginOptions)),
-)
+export default withBundleAnalyzer()
