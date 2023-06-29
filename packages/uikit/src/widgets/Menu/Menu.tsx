@@ -71,7 +71,7 @@ const Inner = styled.div`
   transform: translate3d(0, 0, 0);
   max-width: 100%;
 `;
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
   linkComponent = "a",
   banner,
