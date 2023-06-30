@@ -212,22 +212,27 @@ const SetPositionCard: React.FC<React.PropsWithChildren<SetPositionCardProps>> =
   return (
     <Card>
       <CardHeader p="16px">
-        <Flex alignItems="center">
-        <button
-        type="button"
-        onClick={handleGoBack}
-        className="rounded-full relative mr-3 z-10 bg-indigo-600 p-2 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-      >
-       <ArrowBackIcon width="24px" />
-      </button>
-        
-          <FlexRow>
-            <Heading scale="md">{t('Set Position')}</Heading>
-          </FlexRow>
-          <PositionTag betPosition={position} onClick={togglePosition}>
-            {position === BetPosition.BULL ? t('Up') : t('Down')}
-          </PositionTag>
-        </Flex>
+        <button type="button" onClick={handleGoBack}>
+          <Flex alignItems="center">
+            <button
+              type="button"
+              onClick={handleGoBack}
+              className="rounded-full relative mr-3 z-10 bg-indigo-600 p-2 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              <ArrowBackIcon width="24px" />
+            </button>
+
+            <FlexRow>
+              <h1>{t('Set Position')}</h1>
+            </FlexRow>
+            <div className='ml-16'>
+            <PositionTag betPosition={position} onClick={togglePosition}>
+              {position === BetPosition.BULL ? t('Up') : t('Down')}
+            </PositionTag>
+            </div>
+          
+          </Flex>
+        </button>
       </CardHeader>
       <CardBody py="16px">
         <Flex alignItems="center" justifyContent="space-between" mb="8px">
