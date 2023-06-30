@@ -213,9 +213,14 @@ const SetPositionCard: React.FC<React.PropsWithChildren<SetPositionCardProps>> =
     <Card>
       <CardHeader p="16px">
         <Flex alignItems="center">
-          <IconButton variant="text" scale="sm" onClick={handleGoBack} mr="8px">
-            <ArrowBackIcon width="24px" />
-          </IconButton>
+        <button
+        type="button"
+        onClick={handleGoBack}
+        className="rounded-full relative mr-3 z-10 bg-indigo-600 p-2 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+      >
+       <ArrowBackIcon width="24px" />
+      </button>
+        
           <FlexRow>
             <Heading scale="md">{t('Set Position')}</Heading>
           </FlexRow>
