@@ -95,7 +95,7 @@ const Chart = ({ data, setHoverValue, setHoverDate }: LineChartProps) => {
       color: isDark ? darkColors.primary : lightColors.primary,
     })
     setChart(chart)
-    newSeries.setData(transformedData)
+    newSeries?.setData(transformedData)
 
     chart.timeScale().fitContent()
 

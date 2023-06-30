@@ -24,7 +24,7 @@ const bunnyButt = `"data:image/svg+xml,%3Csvg width='15' height='32' viewBox='0 
 
 const getBaseThumbStyles = ({ isMax, disabled }: StyledInputProps) => `
   -webkit-appearance: none;
-  background-image: url(${isMax ? bunnyHeadMax : bunnyHeadMain});
+
   background-color: transparent;
   box-shadow: none;
   border: 0;

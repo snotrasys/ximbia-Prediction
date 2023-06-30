@@ -133,7 +133,7 @@ export const SwapLineChart: React.FC<SwapLineChartNewProps> = ({
       },
     });
     setChart(chart);
-    newSeries.setData(transformedData);
+    newSeries?.setData(transformedData);
     if (priceLineData && priceLineData.length > 0)
       priceLineData?.forEach((d) => {
         newSeries.createPriceLine({

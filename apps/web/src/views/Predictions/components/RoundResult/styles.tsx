@@ -40,7 +40,7 @@ export const PrizePoolRow: React.FC<React.PropsWithChildren<PrizePoolRowProps>> 
   return (
     <Row {...props}>
       <Text bold>{t('Prize Pool')}:</Text>
-      <Text bold>{`${getPrizePoolAmount(totalAmount, token.decimals, displayedDecimals)} ${token.symbol}`}</Text>
+      <Text bold>{`${getPrizePoolAmount(totalAmount, token.decimals, displayedDecimals)} XMB`}</Text>
     </Row>
   )
 }
@@ -218,7 +218,7 @@ export const PrizePoolHistoryRow: React.FC<React.PropsWithChildren<PrizePoolHist
   return (
     <Row {...props}>
       <Text bold>{t('Prize Pool')}:</Text>
-      <Text bold>{`${getPrizePoolAmountHistory(totalAmount, displayedDecimals)} ${token.symbol}`}</Text>
+      <Text bold>{`${getPrizePoolAmountHistory(totalAmount, displayedDecimals)} XMB`}</Text>
     </Row>
   )
 }

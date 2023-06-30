@@ -105,7 +105,7 @@ const LineChart = ({ data, setHoverValue, setHoverDate }: LineChartProps) => {
       },
     })
     setChart(chart)
-    newSeries.setData(transformedData)
+    newSeries?.setData(transformedData)
 
     chart.timeScale().fitContent()
 

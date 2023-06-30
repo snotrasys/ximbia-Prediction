@@ -5,11 +5,11 @@ import { Image } from "../Image";
 
 const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({ size = 128 }) => {
   return (
-    <Box width={size} height={size * 1.197} position="relative">
+    <Box width={size} height={size * 1.097} position="relative">
       <Image
         width={size}
         height={size * 1.197}
-        src="https://assets.pancakeswap.finance/web/pancake-3d-spinner-v2.gif"
+        src="https://minio-s3.caprover.snotrasys.com/ximbia/logo.png"
         alt="pancake-3d-spinner"
       />
     </Box>

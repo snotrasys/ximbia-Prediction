@@ -291,8 +291,8 @@ const Chart = ({
       'asc',
     )
 
-    newSeries.setData(transformedData)
-    newSeries.setMarkers(markers)
+    //newSeries.setData(transformedData)
+    //newSeries?.setMarkers(markers)
 
     const crossHairHandler = (param) => {
       if (newSeries && param) {

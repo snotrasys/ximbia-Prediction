@@ -57,14 +57,7 @@ const ChartPane = styled.div`
   background: ${({ theme }) => theme.colors.background};
 `
 
-const HistoryPane = styled.div<{ isHistoryPaneOpen: boolean; isChartPaneOpen: boolean }>`
-  flex: none;
-  overflow: hidden;
-  transition: width 200ms ease-in-out;
-  background: ${({ theme }) => theme.card.background};
-  padding-bottom: ${({ isChartPaneOpen }) => (isChartPaneOpen ? 0 : '24px')};
-  width: ${({ isHistoryPaneOpen }) => (isHistoryPaneOpen ? '384px' : 0)};
-`
+
 
 const StyledDesktop = styled.div`
   display: none;
