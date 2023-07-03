@@ -180,6 +180,27 @@ const Desktop: React.FC<React.PropsWithChildren> = () => {
     }
   }, [gutterRef, chartRef, dispatch, isChartPaneOpen])
 
+  useEffect(() => {
+    // Obtén el elemento del iframe por su ID
+    const iframe = document.getElementById("idbook");
+
+    // Verifica si se encontró el iframe
+    if (iframe) {
+      // Accede al contenido del iframe
+      const iframeDocument = iframe?.contentDocument || iframe?.contentWindow.document;
+
+      // Obtén el elemento con el enlace dentro del iframe
+      const linkElement = iframeDocument.querySelector('a[href="/bsc/0x46cf1cf8c69595804ba91dfdd8d6b960c9b0a7c4"]');
+
+      // Verifica si el elemento contiene el texto "Tracked by" dentro del iframe
+      if (linkElement && linkElement.innerText.includes("Tracked by")) {
+        // Elimina el nodo completo dentro del iframe
+        console.log("Entro aqui");
+        linkElement.remove();
+      }
+    }
+  }, []);
+
   return (
     <>
       <StyledDesktop>
@@ -193,8 +214,9 @@ const Desktop: React.FC<React.PropsWithChildren> = () => {
                 {status === PredictionStatus.LIVE ? <Positions /> : <LoadingSection />}
               </Box>
             )}
+            
           </PositionPane>
-
+         
           <ChartPane ref={chartRef}>
             {isChartPaneOpen && (chartView === PredictionsChartView.TradingView ? <TradingView /> : <ChainlinkChart />)}
           </ChartPane>

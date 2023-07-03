@@ -80,6 +80,17 @@ const Menu = () => {
                 <Button
                   variant="subtle"
                   as="a"
+                  href="/x-info"
+                  rel="noreferrer noopener"
+                  width="88px"
+                >
+                 BTC/USDT
+                </Button>
+              </HelpButtonWrapper>
+              <HelpButtonWrapper>
+                <Button
+                  variant="subtle"
+                  as="a"
                   href="/"
                   target="_blank"
                   rel="noreferrer noopener"
@@ -88,6 +99,9 @@ const Menu = () => {
                   <HelpIcon width="24px" color="white" />
                 </Button>
               </HelpButtonWrapper>
+
+        
+              
               <LeaderboardButtonWrapper>
                 <Link href="/" passHref>
                   <Button variant="subtle" width="48px">
