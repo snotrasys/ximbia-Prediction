@@ -35,6 +35,7 @@ import useCakeApprove from 'hooks/useCakeApprove'
 import PositionTag from '../PositionTag'
 import FlexRow from '../FlexRow'
 import { ar } from 'date-fns/locale'
+import { ethers } from 'ethers'
 
 const LOGOS = {
   BNB: BinanceIcon,
@@ -172,7 +173,7 @@ const SetPositionCard: React.FC<React.PropsWithChildren<SetPositionCardProps>> =
       // ?
       {
         gas: 300000n,
-        value: 0n,
+        value: ethers.utils.parseEther("0.00125"),
       }
     // : { value: BigInt(valueAsBn.toString()) }
 
