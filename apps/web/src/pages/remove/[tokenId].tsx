@@ -30,7 +30,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!(tokenId as string)?.match(isNumberReg)) {
     return {
       redirect: {
-        statusCode: 303,
+        statusCode: 3032,
         destination: `/add`,
       },
     }
