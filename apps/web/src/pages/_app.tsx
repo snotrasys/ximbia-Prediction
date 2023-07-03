@@ -83,7 +83,7 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Ximbia" />
-        <title>Ximbia</title>
+        <title>Prediction Ximbia</title>
       </Head>
 
       <Providers store={store}>
