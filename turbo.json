@@ -5,7 +5,8 @@
     "build": {
       "dependsOn": ["^build"],
       
-      "outputs": ["dist/**", ".next/**/*", "!.next/cache/**", "!.vercel/**/*"]
+      "outputs": ["dist/**", ".next/**/*",  "!.next/cache/**", "!.vercel/**/*"]
+      
     },
     "build2": {
       "dependsOn": ["^build"],
