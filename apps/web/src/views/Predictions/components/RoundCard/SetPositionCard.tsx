@@ -173,7 +173,7 @@ const SetPositionCard: React.FC<React.PropsWithChildren<SetPositionCardProps>> =
       // ?
       {
         gas: 300000n,
-        value: ethers.utils.parseEther("0.00125"),
+        value: ethers.utils.parseEther("0.00125").toString(),
       }
     // : { value: BigInt(valueAsBn.toString()) }
 
