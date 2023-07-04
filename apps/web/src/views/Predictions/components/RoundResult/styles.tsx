@@ -72,7 +72,7 @@ export const PayoutRow: React.FC<React.PropsWithChildren<PayoutRowProps>> = ({
           {t('%multiplier% Payout', { multiplier: formattedMultiplier })}
         </Text>
         <Text mx="4px">|</Text>
-        <Text fontSize="12px" lineHeight="18px">{`${formatBnb(amount, displayedDecimals)} ${token.symbol}`}</Text>
+        <Text fontSize="12px" lineHeight="18px">{`${formatBnb(amount, displayedDecimals)} XMB`}</Text>
       </Flex>
     </Row>
   )
