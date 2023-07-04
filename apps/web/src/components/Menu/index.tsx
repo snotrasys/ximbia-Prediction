@@ -61,7 +61,7 @@ const teams = [
   {
     id: 2,
     name: 'Audit Ximbia',
-    href: 'https://blocksafu.com/project-detail/0x3bdeECae844b96A133F98e54e36eB85414ffe5c9',
+    href: 'https://blocksafu.com/project-detail/0x9945f6221Efee040a12054217504cBC230f0ACC9',
     initial: 'A',
     current: false,
   },
@@ -359,7 +359,7 @@ const Menu = (props) => {
         activeItem={activeMenuItem?.href}
         activeSubItem={activeSubMenuItem?.href}
         buyCakeLabel={t('Buy CAKE')}
-        buyCakeLink="https://pancakeswap.finance/swap?outputCurrency=0x3bdeECae844b96A133F98e54e36eB85414ffe5c9&chainId=56"
+        buyCakeLink="https://pancakeswap.finance/swap?outputCurrency=0x9945f6221Efee040a12054217504cBC230f0ACC9&chainId=56"
         {...props}
       />
     </>

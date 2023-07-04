@@ -1,7 +1,7 @@
 import { ERC20Token, ChainId } from '@pancakeswap/sdk'
 import getLpAddress from 'utils/getLpAddress'
 
-const CAKE_AS_STRING = '0x3bdeECae844b96A133F98e54e36eB85414ffe5c9'
+const CAKE_AS_STRING = '0x9945f6221Efee040a12054217504cBC230f0ACC9'
 const BUSD_AS_STRING = '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56'
 const CAKE_AS_TOKEN = new ERC20Token(ChainId.BSC, CAKE_AS_STRING, 18)
 const BUSD_AS_TOKEN = new ERC20Token(ChainId.BSC, BUSD_AS_STRING, 18)
