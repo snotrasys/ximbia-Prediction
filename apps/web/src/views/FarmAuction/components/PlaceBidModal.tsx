@@ -89,9 +89,9 @@ const PlaceBidModal: React.FC<React.PropsWithChildren<PlaceBidModalProps>> = ({
 
   useEffect(() => {
     if (userNotEnoughCake) {
-      setErrorText('Insufficient XMB balance')
+      setErrorText('Insufficient BTIC balance')
     } else if (!isMoreThanInitialBidAmount && isFirstBid) {
-      setErrorText(t('First bid must be %initialBidAmount% CAKE or more.', { initialBidAmount }))
+      setErrorText(t('First bid must be %initialBidAmount% BTIC or more.', { initialBidAmount }))
     } else if (!isMultipleOfTen) {
       setErrorText(t('Bid must be a multiple of 10'))
     } else {

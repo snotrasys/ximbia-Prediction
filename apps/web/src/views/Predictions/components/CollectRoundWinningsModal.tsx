@@ -167,7 +167,7 @@ const CollectRoundWinningsModal: React.FC<React.PropsWithChildren<CollectRoundWi
         <Flex alignItems="start" justifyContent="space-between" mb="8px">
           <Text>{t('Collecting')}</Text>
           <Box style={{ textAlign: 'right' }}>
-            <Text>{`${formatNumber(total, 0, 4)} XMB`}</Text>
+            <Text>{`${formatNumber(total, 0, 4)} BTIC`}</Text>
             <Text fontSize="12px" color="textSubtle">
               {`~$${totalBnb.toFixed(2)}`}
             </Text>
