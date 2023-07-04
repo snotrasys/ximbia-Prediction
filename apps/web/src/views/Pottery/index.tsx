@@ -30,7 +30,7 @@ const Pottery: React.FC<React.PropsWithChildren> = () => {
       <FinishedRounds />
       <HowToPlay />
       <PrizeFunds />
-      <FAQ />
+
       {createPortal(
         <>
           <SubgraphHealthIndicator subgraphName="pancakeswap/pottery" />

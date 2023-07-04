@@ -122,7 +122,7 @@ const CheckPrizesSection = () => {
     }
     return (
       <Flex alignItems="center" justifyContent="center">
-        <TicketImage src="/images/lottery/ticket-l.png" alt="lottery ticket" />
+ 
         <Flex mx={['4px', null, '16px']} flexDirection="column">
           <Heading textAlign="center" color="#F4EEFF" mb="24px">
             {t('Are you a winner?')}
@@ -136,7 +136,7 @@ const CheckPrizesSection = () => {
             {checkNowText()}
           </Button>
         </Flex>
-        <TicketImage src="/images/lottery/ticket-r.png" alt="lottery ticket" />
+
       </Flex>
     )
   }
