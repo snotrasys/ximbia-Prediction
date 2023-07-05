@@ -259,7 +259,7 @@ const BuyTicketsModal: React.FC<React.PropsWithChildren<BuyTicketsModalProps>> =
   })
 
   const getErrorMessage = () => {
-    if (userNotEnoughCake) return 'Insufficient XMB balance'
+    if (userNotEnoughCake) return 'Insufficient BTIC balance'
     return t('The maximum number of tickets you can buy in one transaction is %maxTickets%', {
       maxTickets: maxNumberTicketsPerBuyOrClaim.toString(),
     })

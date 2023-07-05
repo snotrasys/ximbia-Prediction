@@ -87,7 +87,7 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
       </Head>
 
       <Providers store={store}>
-        <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#39004d] to-[#000]">
+        <div className="bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] from-blue-700 via-blue-800 to-gray-900">
           <Blocklist>
             {(Component as NextPageWithLayout).mp ? <MPGlobalHooks /> : <GlobalHooks />}
             <ResetCSS />
