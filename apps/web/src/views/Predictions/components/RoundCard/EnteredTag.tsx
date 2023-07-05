@@ -32,7 +32,7 @@ const EnteredTag: React.FC<React.PropsWithChildren<EnteredTagProps>> = ({ amount
   }, [amount, displayedDecimals, hasClaimed, multiplier, token])
 
   const { targetRef, tooltipVisible, tooltip } = useTooltip(
-    <div style={{ whiteSpace: 'nowrap' }}>{`${formattedAmount} ${token.symbol}`}</div>,
+    <div style={{ whiteSpace: 'nowrap' }}>{`${formattedAmount} BTIC`}</div>,
     { placement: 'bottom' },
   )
 

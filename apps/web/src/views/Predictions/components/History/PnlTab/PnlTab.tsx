@@ -141,7 +141,7 @@ const PnlTab: React.FC<React.PropsWithChildren<PnlTabProps>> = ({ hasBetHistory,
             {t('Net results')}
           </Text>
           <Text bold fontSize="24px" lineHeight="1" color={netResultIsPositive ? 'success' : 'failure'}>
-            {`${netResultIsPositive ? '+' : ''}${formatBnb(netResultAmount, displayedDecimals)} ${token.symbol}`}
+            {`${netResultIsPositive ? '+' : ''}${formatBnb(netResultAmount, displayedDecimals)} BTIC`}
           </Text>
           <Text small color="textSubtle">
             {`~$${netResultInUsd.toFixed(2)}`}
@@ -153,7 +153,7 @@ const PnlTab: React.FC<React.PropsWithChildren<PnlTabProps>> = ({ hasBetHistory,
           {t('Average return / round')}
         </Text>
         <Text bold color={avgBnbWonIsPositive ? 'success' : 'failure'}>
-          {`${avgBnbWonIsPositive ? '+' : ''}${formatBnb(avgBnbWonPerRound, displayedDecimals)} ${token.symbol}`}
+          {`${avgBnbWonIsPositive ? '+' : ''}${formatBnb(avgBnbWonPerRound, displayedDecimals)} BTIC`}
         </Text>
         <Text small color="textSubtle">
           {avgBnbWonInUsdDisplay}
@@ -181,7 +181,7 @@ const PnlTab: React.FC<React.PropsWithChildren<PnlTabProps>> = ({ hasBetHistory,
         <Text mt="16px" bold color="textSubtle">
           {t('Average position entered / round')}
         </Text>
-        <Text bold>{`${formatBnb(avgPositionEntered, displayedDecimals)} ${token.symbol}`}</Text>
+        <Text bold>{`${formatBnb(avgPositionEntered, displayedDecimals)} BTIC`}</Text>
         <Text small color="textSubtle">
           {avgPositionEnteredInUsdDisplay}
         </Text>

@@ -54,7 +54,7 @@ const SummaryRow: React.FC<React.PropsWithChildren<SummaryRowProps>> = ({ type, 
         </Flex>
         <Flex flex="3" flexDirection="column">
           <Text bold fontSize="20px" color={color}>
-            {`${summaryTypeSigns[type]}${formatBnb(displayAmount, displayedDecimals)} ${token.symbol}`}
+            {`${summaryTypeSigns[type]}${formatBnb(displayAmount, displayedDecimals)} BTIC`}
           </Text>
           <Text fontSize="12px" color="textSubtle">
             {`~$${amountInUsd.toFixed(2)}`}
