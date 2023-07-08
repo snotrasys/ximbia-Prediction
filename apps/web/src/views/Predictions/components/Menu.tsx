@@ -84,7 +84,7 @@ const Menu = () => {
                   rel="noreferrer noopener"
                   width="88px"
                 >
-                 BTC/USDT
+                 ETH/USDT
                 </Button>
               </HelpButtonWrapper>
               <HelpButtonWrapper>

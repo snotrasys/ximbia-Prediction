@@ -12,7 +12,7 @@ const Xinfo = () => {
       const iframeDocument = iframe?.contentDocument || iframe?.contentWindow.document;
 
       // Obtén el elemento con el enlace dentro del iframe
-      const linkElement = iframeDocument.querySelector('a[href="/bsc/0x46cf1cf8c69595804ba91dfdd8d6b960c9b0a7c4"]');
+      const linkElement = iframeDocument.querySelector('a[href="/bsc/0x2170Ed0880ac9A755fd29B2688956BD959F933F8"]');
 
       // Verifica si el elemento contiene el texto "Tracked by" dentro del iframe
       if (linkElement && linkElement.innerText.includes("Tracked by")) {
@@ -31,7 +31,7 @@ Regresar
       <div className='mt-8' id="dexscreener-embed">
         <iframe
           id="idbook"
-          src="https://dexscreener.com/bsc/0x46cf1cf8c69595804ba91dfdd8d6b960c9b0a7c4?embed=1&theme=dark&info=1"
+          src="https://dexscreener.com/bsc/0x2170Ed0880ac9A755fd29B2688956BD959F933F8?embed=1&theme=dark&info=1"
         ></iframe>
       </div>
     </>
