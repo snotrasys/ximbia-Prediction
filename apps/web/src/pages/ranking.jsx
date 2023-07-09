@@ -106,7 +106,7 @@ function RankingStake() {
 
       <div className='mx-auto mt-2 space-y-2 px-8'>
         <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded z-10"
+        className="hidden bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded z-10"
         onClick={()=>submit()}
         >
           Hola
