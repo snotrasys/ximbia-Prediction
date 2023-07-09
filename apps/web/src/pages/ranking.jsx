@@ -166,11 +166,11 @@ function RankingStake() {
                         <p className='text-sm font-medium text-gray-100'>
                           Wallet: 0x...{wallet.address?.slice(28)}
                         </p>
-                        <p className='truncate text-sm text-gray-200'>
+                        <p className='hidden truncate text-sm text-gray-200'>
                           Invest: {wallet.totalBetAmount}
                         </p>
                         <p className='truncate text-sm text-gray-200'>
-                          Rewards : {wallet.totalReWards}
+                          Reward : {wallet.totalReWards}
                         </p>
                       </div>
                     </div>
