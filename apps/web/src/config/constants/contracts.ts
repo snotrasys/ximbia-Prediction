@@ -84,7 +84,7 @@ export default {
     97: '0x',
   },
   predictionsCAKE: {
-    56: '0x95095880120DACEaC0dEb75574DBE8397A3cCB03',
+    56: '0x1556A407730A41cbe439950b4D8428FAFbF179CB',
     97: '0x',
   },
   chainlinkOracleBNB: {
