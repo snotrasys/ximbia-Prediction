@@ -3,7 +3,7 @@ FROM  node:16.20-alpine3.18 as build
 RUN apk update && apk add --no-cache libc6-compat
 WORKDIR /app
 RUN corepack enable
-corepack prepare pnpm@latest --activate
+RUN corepack prepare pnpm@latest --activate
 
 # ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY . /app
