@@ -1,6 +1,6 @@
 # build environment
-FROM  node:16.20-alpine3.18 as build
-RUN apk update && apk add --no-cache libc6-compat
+FROM  node:16.20 as build
+# RUN apk update && apk add --no-cache libc6-compat
 WORKDIR /app
 RUN corepack enable
 RUN corepack prepare pnpm@latest --activate
@@ -22,6 +22,8 @@ RUN pnpm run build
 FROM  node:16.20-alpine3.18 
 # RUN apk update && apk add --no-cache libc6-compat
 WORKDIR /app
+RUN corepack enable
+RUN corepack prepare pnpm@latest --activate
 # RUN npm install -g pnpm
 # ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY --from=build /app /app
