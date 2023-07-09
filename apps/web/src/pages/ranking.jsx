@@ -1,8 +1,11 @@
 import { utils, Contract, ethers } from "ethers";
 import React, { useRef, useState, useContext, useEffect, useMemo } from "react";
+import clsx from "clsx";
 
 import { contractAddress2, abidis } from "../hooks/abiHelpers";
 import axios from "axios";
+import { useToken } from "../hooks/UseToken";
+import { useConnect,useNetwork } from 'wagmi';
 
 //import Web3Context from "@/context/Web3Context";
 export const useContract = () => {
@@ -34,91 +37,59 @@ export const useContract = () => {
 
 function RankingStake() {
   //const { accounts, isLoaded } = useContext(Web3Context);
-
+  const [Token]=useToken();
+  
+  
   useEffect(() => {
  //  if (!isLoaded) return;
     submit();
     // getBalanceToken()
     // getIsAdmin()
     return () => {};
-  }, []);
+  }, [Token.contract]);
 
   const [royaltiesDistribution, setRoyaltiesDistribution] = useState([]);
 
   const submit = async (e) => {
     try {
-      const [stake] = null;
-      const getPool = async (i) =>
-        (await stake.getAllUsers(i)).map((user) =>
-          Object.assign({ poolIndex: i }, user)
-        );
+      // console.log("submit");
+      // const provider =new ethers.providers.Web3Provider(window.ethereum);
 
-      let pool = await getPool(1);
-      // pool = pool.concat(await stake.getAllUsers(2));
-      pool = pool.concat(await getPool(3));
-      // pool = pool.concat(await stake.getAllUsers(4));
-      pool = pool.concat(await getPool(5));
 
-      // console.log(pool.length, 'allUser');
-      pool = pool
-        .filter((user) => {
-          return user.user != "0x0000000000000000000000000000000000000000";
-        })
-        .map((user) => {
-          return {
-            user: user.user,
-            referrer: user.referrer,
-            investment: Number(utils.formatEther(user.investment)).toFixed(2),
-            stakingValue: utils.formatEther(user.stakingValue),
-            rewardLockedUp: utils.formatEther(user.rewardLockedUp),
-            totalDeposit: Number(utils.formatEther(user.totalDeposit)).toFixed(
-              2
-            ),
-            totalWithdrawn: utils.formatEther(user.totalWithdrawn),
-            nextWithdraw: user.nextWithdraw,
-            unlockDate: user.unlockDate,
-            depositCheckpoint: utils.formatEther(user.depositCheckpoint),
-            busdTotalDeposit: Number(
-              utils.formatEther(user.busdTotalDeposit)
-            ).toFixed(2),
-            address: "0x0000000",
-            percentage: 100,
-            isdev: false,
-            poolIndex: user.poolIndex,
-          };
-        });
 
-      const ref = await axios.get("https://xb.api.magic-api.net/v1/utils");
-      const { data } = ref.data;
-      let poolShow = [];
+      const allUser = await Token.getAllUser();
+      if(allUser.length==0) return;
 
-      pool = pool
-        .map((user, index) => {
-          const ref = data.find(
-            (ref) => ref.user.toUpperCase() == user.user.toUpperCase()
-          );
-          user.refamount = 0;
-          if (ref) {
-            user.refamount = Number(ethers.utils.formatEther(ref.amount));
-          }
-          user.investment = Number(user.investment);
-          return user;
-        })
-        .map((user, index) => {
-          if (poolShow.find((u) => u.user == user.user)) {
-            index = poolShow.findIndex((u) => u.user == user.user);
-            poolShow[index].refamount += user.refamount;
-            poolShow[index].investment += user.investment;
-          } else {
-            poolShow.push(user);
-          }
-        });
-
-      pool = poolShow.sort((a, b) => {
-        return b.refamount - a.refamount;
+      const allUser2 = allUser.map((user) => {
+        return {
+          address: user.user,
+          id:user.id,
+          totalBull: user.totalBull.toString(),
+          totalBear: user.totalBear.toString(),
+          totalBetAmount: Number(ethers.utils.formatEther(user.totalBetAmount)).toFixed(4),
+          totalReWards:   Number(ethers.utils.formatEther(user.totalReWards)).toFixed(4),
+          totalRefound:   Number(ethers.utils.formatEther(user.totalRefound)).toFixed(4),
+        };
       });
 
-      setRoyaltiesDistribution(pool);
+      console.log(allUser2);
+      console.log(allUser2.length);
+      setRoyaltiesDistribution(allUser2)
+      // address user;
+      // uint id;
+      // uint totalBull;
+      // uint totalBear;
+      // uint totalBetAmount;
+      // uint totalReWards;
+      // uint totalRefound;
+      
+
+      // const response = await axios.get(
+      //   "https://api.zybertrust.com/api/v1/royaltiesDistribution"
+      // );
+      // console.log(response.data);
+      // setRoyaltiesDistribution(response.data);
+
     } catch (e) {
       console.log(e);
     }
@@ -134,17 +105,23 @@ function RankingStake() {
       </h1>
 
       <div className='mx-auto mt-2 space-y-2 px-8'>
+        <button
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded z-10"
+        onClick={()=>submit()}
+        >
+          Hola
+        </button>
         {royaltiesDistribution.map((wallet, index) => {
-          let total = 0;
-          let percentage = 0;
-          if (index == royaltiesDistribution.length - 1) {
-            total =
-              royaltiesDistribution
-                .map((wallet) => Number(wallet.percentage))
-                .reduce((a, b) => Number(a) + Number(b), 0) +
-              Number(percentage);
-            percentage = total / 100;
-          }
+          // let total = 0;
+          // let percentage = 0;
+          // if (index == royaltiesDistribution.length - 1) {
+          //   total =
+          //     royaltiesDistribution
+          //       .map((wallet) => Number(wallet.totalBetAmount))
+          //       .reduce((a, b) => Number(a) + Number(b), 0) +
+          //     Number(percentage);
+          //   percentage = total / 100;
+          // }
 
           return (
             <>
@@ -187,13 +164,13 @@ function RankingStake() {
                       <div className='focus:outline-none'>
                         <span className='absolute inset-0' aria-hidden='true' />
                         <p className='text-sm font-medium text-gray-100'>
-                          Wallet: 0x...{wallet.user?.slice(28)}
+                          Wallet: 0x...{wallet.address?.slice(28)}
                         </p>
                         <p className='truncate text-sm text-gray-200'>
-                          Invest: 0
+                          Invest: {wallet.totalBetAmount}
                         </p>
                         <p className='truncate text-sm text-gray-200'>
-                          Ref Invest: {wallet.refamount * 20}
+                          Rewards : {wallet.totalReWards}
                         </p>
                       </div>
                     </div>
