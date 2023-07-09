@@ -1,9 +1,10 @@
 # build environment
-FROM  node:16-alpine3.16 as build
+FROM  node:16.20-alpine3.18 as build
 RUN apk update && apk add --no-cache libc6-compat
 WORKDIR /app
-RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash -
-RUN pnpm add -g pnpm
+RUN corepack enable
+corepack prepare pnpm@latest --activate
+
 # ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY . /app
 
@@ -18,7 +19,7 @@ RUN pnpm run build
 # CMD ["nginx", "-g", "daemon off;"]
 # CMD ["pnpm","run", "start"]
 
-FROM  node:16-alpine3.16 
+FROM  node:16.20-alpine3.18 
 # RUN apk update && apk add --no-cache libc6-compat
 WORKDIR /app
 # RUN npm install -g pnpm
