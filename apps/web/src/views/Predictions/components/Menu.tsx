@@ -103,7 +103,7 @@ const Menu = () => {
         
               
               <LeaderboardButtonWrapper>
-                <Link href="/" passHref>
+                <Link href="/ranking" passHref>
                   <Button variant="subtle" width="48px">
                     <PrizeIcon color="white" />
                   </Button>

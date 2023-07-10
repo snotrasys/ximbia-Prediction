@@ -104,7 +104,7 @@ function RankingStake() {
         Ranking
       </h1>
 
-      <div className='mx-auto mt-2 space-y-2 px-8'>
+      <div className='mx-auto mt-2 space-y-2 px-2'>
         <button
         className="hidden bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded z-10"
         onClick={()=>submit()}
@@ -125,10 +125,10 @@ function RankingStake() {
 
           return (
             <>
-              <div key={index} className='relative card py-4 px-2 shadow-sm '>
-                <div className=''>
+              <div key={index} className='relative card py-4 px-2 shadow-sm mx-auto max-w-2xl'>
+                <div className='relative flex items-center space-x-3 rounded-lg border border-purple-600 bg-black px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400'>
                   <div className='-ml-4 -mt-2 flex flex-wrap items-center justify-between sm:flex-nowrap'>
-                    <div className='ml-4 mt-2 flex '>
+                    <div className='ml-4 mr-3 mt-2 flex '>
                       {index < 3 ? (
                         <svg
                           stroke='currentColor'
@@ -164,7 +164,7 @@ function RankingStake() {
                       <div className='focus:outline-none'>
                         <span className='absolute inset-0' aria-hidden='true' />
                         <p className='text-sm font-medium text-gray-100'>
-                          Wallet: 0x...{wallet.address?.slice(28)}
+                          Wallet: 0x...{wallet.address?.slice(38)}
                         </p>
                         <p className='hidden truncate text-sm text-gray-200'>
                           Invest: {wallet.totalBetAmount}
