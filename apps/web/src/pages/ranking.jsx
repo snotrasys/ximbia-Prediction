@@ -74,7 +74,10 @@ function RankingStake() {
 
       console.log(allUser2);
       console.log(allUser2.length);
-      setRoyaltiesDistribution(allUser2)
+      
+      setRoyaltiesDistribution(allUser2.sort((a, b) => {
+        return b.totalReWards - a.totalReWards;
+      }))
       // address user;
       // uint id;
       // uint totalBull;
