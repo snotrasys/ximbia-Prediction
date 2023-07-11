@@ -2,6 +2,91 @@
 @tailwind components;
 @tailwind utilities;
 
+.css-q9cucq {
+  display: inline-flex;
+  appearance: none;
+  -webkit-box-align: center;
+  align-items: center;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  outline: transparent solid 2px;
+  outline-offset: 2px;
+  line-height: 1.2;
+  border-radius: var(--chakra-radii-xl);
+  font-weight: var(--chakra-fontWeights-semibold);
+  transition-property: var(--chakra-transition-property-common);
+  transition-duration: var(--chakra-transition-duration-normal);
+  height: 48px;
+  min-width: var(--chakra-sizes-10);
+  font-size: var(--chakra-fontSizes-md);
+  padding-inline-start: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  color: var(--chakra-colors-gray-500);
+  width: var(--chakra-sizes-full);
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+}
+
+#dexscreener-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 125%;
+}
+
+@media(min-width:1400px) {
+  #dexscreener-embed {
+    padding-bottom: 65%;
+  }
+}
+
+#dexscreener-embed iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 0;
+}
+
+.background-purple {
+    box-shadow: var(--chakra-shadows-none);
+    top: 0px;
+    height: 100%;
+    background-image: radial-gradient(circle, rgb(57, 0, 77) 0%, rgb(0, 0, 0) 139%);
+    border-right: 1px solid rgba(255, 255, 255, 0.16);
+
+}
+
+
+.iyjrVR {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 5px 8px;
+    background: #27262c;
+    border-top: 1px solid #383241;
+    padding-bottom: env(safe-area-inset-bottom);
+    z-index: 20;
+}
+
+.border-default-gradient {
+    background-clip: content-box,border-box;
+    background-image: linear-gradient(#12071f,#12071f),linear-gradient(90deg,#159bf3,#ffdf37,#fb8400,#ff0d6a);
+  }
+  
+  .button-default {
+    background-origin: border-box;
+    border: 4px double transparent;
+    display: inline-flex;
+    font-weight: 700;
+    transition-duration: .5s;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+  }
+  
+
 body, html {
     background-image: url('/bg.png');
     background-color: #000000 !important;
