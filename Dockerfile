@@ -1,5 +1,5 @@
 # build environment
-FROM  node:18-alpine as build
+FROM  node:16.20 as build
 # FROM  node:16-buster as build
 RUN corepack enable
 RUN corepack prepare pnpm@latest --activate
@@ -21,7 +21,7 @@ RUN pnpm run build
 # CMD ["nginx", "-g", "daemon off;"]
 # CMD ["pnpm","run", "start"]
 
-FROM  node:18-alpine
+FROM  node:16.20 
 # RUN apk update && apk add --no-cache libc6-compat
 WORKDIR /app
 # RUN npm install -g pnpm
