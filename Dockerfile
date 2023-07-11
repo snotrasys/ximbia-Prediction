@@ -27,7 +27,7 @@ WORKDIR /app
 RUN npm install -g pnpm
 # ENV PATH /usr/src/app/node_modules/.bin:$PATH
 # RUN corepack enable
-RUN corepack prepare pnpm@latest --activate
+# RUN corepack prepare pnpm@latest --activate
 COPY --from=build /app /app
 RUN pnpm install
 CMD ["pnpm","run", "start"]
