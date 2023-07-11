@@ -5,7 +5,7 @@ RUN corepack enable
 RUN corepack prepare pnpm@latest --activate
 # RUN apk update && apk add --no-cache libc6-compat
 WORKDIR /app
-RUN npm install -g pnpm
+# RUN npm install -g pnpm
 # RUN pnpm add -g pnpm
 # ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY . /app
