@@ -98,6 +98,11 @@ function RankingStake() {
     }
   };
 
+  const walletAddress = "0xDbf15Ccf124330D0CA9f11D252e9949B21A9c3aA";
+const filteredRoyaltiesDistribution = royaltiesDistribution.filter(
+  (item) => item.address !== walletAddress
+);
+
   return (
     <div
       className="box-card shadow-b bg-zyberGrey h-screen rounded-lg border border-blue-800 bg-cover   bg-local bg-no-repeat py-4"
@@ -114,7 +119,7 @@ function RankingStake() {
         >
           Hola
         </button>
-        {royaltiesDistribution.map((wallet, index) => {
+        {filteredRoyaltiesDistribution.map((wallet, index) => {
           // let total = 0;
           // let percentage = 0;
           // if (index == royaltiesDistribution.length - 1) {
